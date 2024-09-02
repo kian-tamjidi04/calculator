@@ -42,3 +42,18 @@ header {
     border: 2px groove black;
     font-size: 50px;
 }
+
+.operations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.operation-button {
+    text-align: center;
+    background-color: rgb(2, 128, 255);
+    padding: 30px;
+    color: whitesmoke;
+    border: 2px groove black;
+    font-size: 50px;
+}
