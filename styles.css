@@ -23,7 +23,6 @@ header {
     display: flex;
     justify-content: space-between;
     gap: 2px;
-    margin: 5px;
 }
 
 .number-button {
@@ -32,6 +31,7 @@ header {
     color: whitesmoke;
     border: 2px groove black;
     font-size: 50px;
+    margin-top: 5px;
 }
 
 .equals-button {
@@ -41,6 +41,7 @@ header {
     color: whitesmoke;
     border: 2px groove black;
     font-size: 50px;
+    margin-top: 5px;
 }
 
 .operations {
@@ -56,4 +57,5 @@ header {
     color: whitesmoke;
     border: 2px groove black;
     font-size: 50px;
+    margin-top: 5px;
 }
