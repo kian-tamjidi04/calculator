@@ -13,3 +13,26 @@ function multiply(x, y) {
 function divide(x, y) {
     return x / y;
 }
+
+// Typical operation: 3 + 5
+// firstVal = 3, operation = '+', secondVal = 5
+let firstVal;
+let operation;
+let secondVal;
+
+function operate(operator, x, y) {
+    switch(operator) {
+        case "+":
+            return add(x, y);
+            break;
+        case "-":
+            return subtract(x, y);
+            break;
+        case "*":
+            return multiply(x, y);
+            break;
+        case "/":
+            return divide(x, y);
+            break
+    }
+}
