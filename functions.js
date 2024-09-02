@@ -32,3 +32,12 @@ function operate(operator, x, y) {
             return divide(x, y);
     }
 }
+
+const container = document.querySelector(".numbers");
+const display = document.querySelector(".display");
+let displayVal = display.textContent;
+
+container.addEventListener('click', (event) => {
+    displayVal += event.target.value;
+    display.textContent = displayVal;
+});
