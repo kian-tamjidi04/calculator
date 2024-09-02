@@ -28,7 +28,17 @@ header {
 
 .number-button {
     background-color: gray;
-    padding: 20px;
+    padding: 30px;
     color: whitesmoke;
     border: 2px groove black;
+    font-size: 50px;
+}
+
+.equals-button {
+    text-align: center;
+    background-color: red;
+    padding: 30px;
+    color: whitesmoke;
+    border: 2px groove black;
+    font-size: 50px;
 }
