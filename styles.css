@@ -22,4 +22,13 @@ header {
 .number-group {
     display: flex;
     justify-content: space-between;
+    gap: 2px;
+    margin: 5px;
+}
+
+.number-button {
+    background-color: gray;
+    padding: 20px;
+    color: whitesmoke;
+    border: 2px groove black;
 }
