@@ -1,13 +1,13 @@
 function add(x, y) {
-    return x + y;
+    return (x + y).toFixed(6);
 }
 
 function subtract(x, y) {
-    return x - y;
+    return (x - y).toFixed(6);
 }
 
 function multiply(x, y) {
-    return x * y;
+    return (x * y).toFixed(6);
 }
 
 function divide(x, y) {
@@ -17,7 +17,7 @@ function divide(x, y) {
         divByZero = true;
         return 0;
     } else {
-        return x / y;
+        return (x / y).toFixed(6);
     }
 }
 
@@ -27,6 +27,7 @@ let secondVal;
 let newOperation = false; // True when an operator has already been clicked on
 let divByZero = false;
 let equalsPressed = false;
+let safeToInputSecond = true;
 
 function operate(operator, x, y) {
     switch(operator) {
@@ -44,12 +45,10 @@ function operate(operator, x, y) {
 const numContainer = document.querySelector(".numbers");
 const display = document.querySelector(".display");
 
-// TODO: FIX ISSUE WHEREBY SECOND VALUE IS ONLY A SINGLE DIGIT, THIS IS BECAUSE
-// FIRST IF STATEMENT IS RUN WHICH RESETS TO SINGLE DIGIT EVERY TIME PRESSED
-// AFTER FIRSTVAL ENTERED
 numContainer.addEventListener('click', (event) => {
-    if (newOperation && !equalsPressed) {
+    if (newOperation && !equalsPressed && safeToInputSecond) {
         display.textContent = "";
+        safeToInputSecond = false;
     }
     // Prevents leading zeros and the = symbol displaying
     if (event.target.value === "=") {
@@ -71,6 +70,7 @@ operationContainer.addEventListener('click', (event) => {
     } else {
         calculate();
         currentOperation = event.target.value;
+        safeToInputSecond = true;
     }
 })
 
@@ -81,8 +81,8 @@ equalsBtn.addEventListener('click', () => {
         equalsPressed = true;
     } else {
         divByZero = false;
-        alert("Press clear to restart");
     }
+    alert("Press clear to restart");
 });
 
 function calculate() {
@@ -106,4 +106,5 @@ function reset() {
     currentOperation = undefined;
     secondVal = undefined;
     total = undefined;
+    safeToInputSecond = true;
 }
