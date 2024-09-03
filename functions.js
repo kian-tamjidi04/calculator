@@ -82,7 +82,12 @@ equalsBtn.addEventListener('click', () => {
     } else {
         divByZero = false;
     }
-    alert("Press clear to restart");
+
+    // Prevents alert from displaying before result of calculation
+    setTimeout(() => {
+        alert("Press clear to restart");
+    }, 50);
+    
 });
 
 function calculate() {
