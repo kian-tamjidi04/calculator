@@ -62,22 +62,22 @@ operationContainer.addEventListener('click', (event) => {
         currentOperation = event.target.value;
         newOperation = true;
     } else {
-        secondVal = parseInt(display.textContent);
-        if (total == undefined) {
-            total = firstVal;
-        }
-        total = operate(currentOperation, total, secondVal);
+        calculate()
         currentOperation = event.target.value;
-        display.textContent = total;
     }
 })
 
 const equalsBtn = document.querySelector(".equals-button");
 equalsBtn.addEventListener('click', () => {
+    calculate();
+    equalsPressed = true;
+});
+
+function calculate() {
     secondVal = parseInt(display.textContent);
     if (total == undefined) {
         total = firstVal;
     }
-    display.textContent = operate(currentOperation, total, secondVal);
-    equalsPressed = true;
-});
+    total = operate(currentOperation, total, secondVal);
+    display.textContent = total;
+}
