@@ -12,6 +12,11 @@ function multiply(x, y) {
 
 // TODO: DEAL WITH WHEN Y = 0
 function divide(x, y) {
+    if (y == 0) {
+        alert("Illegal operation detected: Division by 0");
+        reset();
+        return;
+    }
     return x / y;
 }
 
@@ -82,6 +87,10 @@ function calculate() {
 
 const clearBtn = document.querySelector(".clear-button");
 clearBtn.addEventListener('click', () => {
+    reset();
+})
+
+function reset() {
     display.textContent = "0";
     newOperation = false;
     equalsPressed = false;
@@ -89,4 +98,4 @@ clearBtn.addEventListener('click', () => {
     secondVal = undefined;
     total = undefined;
     currentOperation = undefined;
-})
+}
