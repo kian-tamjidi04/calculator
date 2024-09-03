@@ -10,21 +10,22 @@ function multiply(x, y) {
     return x * y;
 }
 
-// TODO: DEAL WITH WHEN Y = 0
 function divide(x, y) {
     if (y == 0) {
         alert("Illegal operation detected: Division by 0");
         reset();
-        return;
+        divByZero = true;
+        return 0;
+    } else {
+        return x / y;
     }
-    return x / y;
 }
 
-let firstVal;
+let total;
 let currentOperation;
 let secondVal;
-let total;
 let newOperation = false; // True when an operator has already been clicked on
+let divByZero = false;
 let equalsPressed = false;
 
 function operate(operator, x, y) {
@@ -43,6 +44,9 @@ function operate(operator, x, y) {
 const numContainer = document.querySelector(".numbers");
 const display = document.querySelector(".display");
 
+// TODO: FIX ISSUE WHEREBY SECOND VALUE IS ONLY A SINGLE DIGIT, THIS IS BECAUSE
+// FIRST IF STATEMENT IS RUN WHICH RESETS TO SINGLE DIGIT EVERY TIME PRESSED
+// AFTER FIRSTVAL ENTERED
 numContainer.addEventListener('click', (event) => {
     if (newOperation && !equalsPressed) {
         display.textContent = "";
@@ -61,11 +65,11 @@ const operationContainer = document.querySelector(".operations");
 operationContainer.addEventListener('click', (event) => {
     // If this is the first operator clicked...
     if (!newOperation) {
-        firstVal = parseInt(display.textContent);
+        total = parseInt(display.textContent);
         currentOperation = event.target.value;
         newOperation = true;
     } else {
-        calculate()
+        calculate();
         currentOperation = event.target.value;
     }
 })
@@ -73,14 +77,19 @@ operationContainer.addEventListener('click', (event) => {
 const equalsBtn = document.querySelector(".equals-button");
 equalsBtn.addEventListener('click', () => {
     calculate();
-    equalsPressed = true;
+    if (!divByZero) {
+        equalsPressed = true;
+    } else {
+        divByZero = false;
+        alert("Press clear to restart");
+    }
 });
 
 function calculate() {
+    // Get the second value from the display
     secondVal = parseInt(display.textContent);
-    if (total == undefined) {
-        total = firstVal;
-    }
+
+    // Update the total by performing the operation
     total = operate(currentOperation, total, secondVal);
     display.textContent = total;
 }
@@ -88,14 +97,13 @@ function calculate() {
 const clearBtn = document.querySelector(".clear-button");
 clearBtn.addEventListener('click', () => {
     reset();
+    display.textContent = 0;
 })
 
 function reset() {
-    display.textContent = "0";
     newOperation = false;
     equalsPressed = false;
-    firstVal = undefined;
+    currentOperation = undefined;
     secondVal = undefined;
     total = undefined;
-    currentOperation = undefined;
 }
