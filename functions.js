@@ -15,8 +15,6 @@ function divide(x, y) {
     return x / y;
 }
 
-// Typical operation: 3 + 5
-// firstVal = 3, operation = '+', secondVal = 5
 let firstVal;
 let currentOperation;
 let secondVal;
@@ -81,3 +79,14 @@ function calculate() {
     total = operate(currentOperation, total, secondVal);
     display.textContent = total;
 }
+
+const clearBtn = document.querySelector(".clear-button");
+clearBtn.addEventListener('click', () => {
+    display.textContent = "0";
+    newOperation = false;
+    equalsPressed = false;
+    firstVal = undefined;
+    secondVal = undefined;
+    total = undefined;
+    currentOperation = undefined;
+})
