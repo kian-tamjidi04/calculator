@@ -26,6 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     gap: 2px;
+    flex: 1;
 }
 
 .number-button {
@@ -35,6 +36,7 @@ header {
     border: 2px groove black;
     font-size: 50px;
     margin-top: 5px;
+    flex: 1;
 }
 
 .equals-button {
@@ -50,7 +52,8 @@ header {
 .operations {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    flex: 1;
 }
 
 .operation-button {
@@ -61,6 +64,7 @@ header {
     border: 2px groove black;
     font-size: 50px;
     margin-top: 5px;
+    flex: 1;
 }
 
 .clear-button {
@@ -70,4 +74,12 @@ header {
     border: 2px groove black;
     font-size: 50px;
     margin-top: 5px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+    justify-content: center;
 }
