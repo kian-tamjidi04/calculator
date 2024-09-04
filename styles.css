@@ -83,3 +83,7 @@ header {
     margin: 0 auto;
     justify-content: center;
 }
+
+.equals-button:active, .clear-button:active, .number-button:active, .operation-button:active {
+    opacity: 50%;
+}
